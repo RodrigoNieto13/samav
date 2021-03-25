@@ -1,0 +1,71 @@
+{% load crispy_forms_tags %}
+
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Editar Incidencia</h2>
+      <button class="close" type="button" data-dismiss = "modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+{% block content %}
+<form method="POST" action="{% url 'updateProblematica' object.id %}" class="post-form" name="formulario"  id="forma">
+  {% csrf_token %}
+  <div class="row">
+ <div class="col-md-6">
+        <div class="form-group">
+            Alumno: * {{ form.alumno|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            Profesor: * {{ form.user|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-7">
+        <div class="form-group">
+            Tipo: * {{ form.tipo|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-5">
+        <div class="form-group">
+            Materia: * {{ form.materia|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            Descripción: * {{ form.descripcion|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            Solución: * {{ form.solucion|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            Parcial: * {{ form.parcial|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            Semana: * {{ form.semana|as_crispy_field }}
+          </div>
+      </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            Fecha: * {{ form.fecha|as_crispy_field }}
+          </div>
+      </div>
+  </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type="button" data-dismiss = "modal">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Confirmar</button>
+      </div>
+</form>
+</div>
+</div>
+
+{% endblock %}
